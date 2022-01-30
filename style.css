@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.ttf');
+  }
+*{
+    font-family: 'Roboto';
+    color: white;
+}
+
+body{
+    background-color: #191919;
+}
+.position-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); /* for IE 9 */
+  -webkit-transform: translate(-50%, -50%); /* for Safari */
+}
+.align-content-center{
+    text-align: center;
+}
+img{
+    border-radius: 10px;
+    width: 90vw;
+    max-width: 500px;
+}
+
+.secondary{
+    opacity: .7;
+}
