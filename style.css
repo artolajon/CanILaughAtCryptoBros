@@ -30,3 +30,9 @@ img{
 .secondary{
     opacity: .7;
 }
+footer{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: .8rem;
+}
