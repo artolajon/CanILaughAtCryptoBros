@@ -12,11 +12,11 @@ var gif = document.getElementById("gif");
         
         if (difference < 0){
             result.innerText = "Yes you can";
-            information.innerText = `They lose ${Math.abs(difference)}% of their money this month`;
+            information.innerText = `Bitcoin has lost ${Math.abs(difference)}% of its value this month`;
             gif.src = getRandomGif("happy");
         }else{
-            result.innerText = "No yet";
-            information.innerText = `They win ${Math.abs(difference)}% of their money this month`;
+            result.innerText = "Not now";
+            information.innerText = `Bitcoin has gained ${Math.abs(difference)}% of its value this month`;
             gif.src = getRandomGif("sad");
         }
     }else{
