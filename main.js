@@ -9,16 +9,21 @@ var gif = document.getElementById("gif");
     let data = await getBTCData();
     if (data){
         let difference = calculateDifference(data.chart[0][PriceKey], data.chart[data.chart.length-1][PriceKey]);
-        
+        let title, informationTemplate, tag;
         if (difference < 0){
-            result.innerText = "Yes you can";
-            createCounter("Bitcoin has lost {number}% of its value this month", Math.abs(difference), (counter) => information.innerText = counter)
-            gif.src = getRandomGif("happy");
+            title = "Yes you can";
+            informationTemplate = "Bitcoin has lost {number}% of its value this month";
+            tag = "happy";
         }else{
-            result.innerText = "Not now";
-            createCounter("Bitcoin has gained {number}% of its value this month", Math.abs(difference), (counter) => information.innerText = counter)
-            gif.src = getRandomGif("sad");
+            title = "Not now";
+            informationTemplate = "Bitcoin has gained {number}% of its value this month";
+            tag = "sad";
         }
+        
+        gif.src = getRandomGif(tag);
+        result.innerText = title;
+        createCounter(informationTemplate, Math.abs(difference), (counter) => information.innerText = counter)
+        
     }else{
         console.error("Data is null");
     }
