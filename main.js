@@ -12,11 +12,11 @@ var gif = document.getElementById("gif");
         
         if (difference < 0){
             result.innerText = "Yes you can";
-            information.innerText = `Bitcoin has lost ${Math.abs(difference)}% of its value this month`;
+            createCounter("Bitcoin has lost {number}% of its value this month", Math.abs(difference), (counter) => information.innerText = counter)
             gif.src = getRandomGif("happy");
         }else{
             result.innerText = "Not now";
-            information.innerText = `Bitcoin has gained ${Math.abs(difference)}% of its value this month`;
+            createCounter("Bitcoin has gained {number}% of its value this month", Math.abs(difference), (counter) => information.innerText = counter)
             gif.src = getRandomGif("sad");
         }
     }else{
@@ -35,3 +35,16 @@ function getRandomGif(tag){
     let index = Math.floor(Math.random() * GifCount);
     return `./gifs/${tag}/${index}.gif`;
 }
+
+async function createCounter(stringTemplate, valueLimit, callback){
+    for (let current = 0; current < valueLimit; current++) {
+        let string = stringTemplate.replace("{number}", current);
+        callback(string);
+        await delay(50);
+    }
+    // last line for decimals
+    let string = stringTemplate.replace("{number}", valueLimit);
+    callback(string);
+}
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
