@@ -16,7 +16,7 @@ var gif = document.getElementById("gif");
             tag = "happy";
         }else{
             title = "Not now";
-            informationTemplate = "Bitcoin has gained {number}% of its value this month";
+            informationTemplate = "Bitcoin hasn't lost any of its value this month";
             tag = "sad";
         }
         
